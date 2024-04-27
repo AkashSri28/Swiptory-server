@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
 const authRoutes = require('./routes/authRoutes');
+const storyRoutes = require('./routes/storyRoutes');
 
 // Create Express app
 const app = express();
@@ -40,3 +41,4 @@ mongoose.connect('mongodb+srv://sriakash2009:admin@cluster0.hbcyh4c.mongodb.net/
 
 // Routes
 app.use('/api/user', authRoutes);
+app.use('/api/story', storyRoutes);
