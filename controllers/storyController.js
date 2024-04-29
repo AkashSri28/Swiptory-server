@@ -5,10 +5,12 @@ const Story = require('../models/StoryModel');
 const addStory = async (req, res) => {
   try {
     const storyForms = req.body.storyForms;
+    const category = req.body.category;
     const user = req.user;
     // Create a new story object
     const newStory = new Story({
       forms: storyForms,
+      category: category,
       user: user._id
     });
     console.log(newStory)
@@ -34,4 +36,22 @@ const getUserStories = async (req, res) => {
     }
   };
 
-module.exports = { addStory, getUserStories };
+  // Get stories by category
+const getStoriesByCategory = async (req, res) => {
+    try {
+      const category = req.params.category;
+    //   const stories = await Story.find({ 'forms.category': category });
+        let stories;
+        if (category === 'All') {
+            stories = await Story.find();
+        } else {
+            stories = await Story.find({ 'category': category });
+        }
+      res.status(200).json(stories);
+    } catch (error) {
+      console.error('Error fetching stories by category:', error);
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  };
+
+module.exports = { addStory, getUserStories, getStoriesByCategory };

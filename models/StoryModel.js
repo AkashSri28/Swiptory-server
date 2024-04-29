@@ -5,10 +5,10 @@ const storySchema = new mongoose.Schema({
     {
       heading: String,
       description: String,
-      image: String,
-      category: String
+      image: String
     }
   ],
+  category: String,
   user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }
 });
 
