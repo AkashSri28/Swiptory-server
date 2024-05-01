@@ -38,7 +38,6 @@ mongoose.connect(process.env.MONGO_URI, {
     console.log(error)
 })
 
-
 // Routes
 app.use('/api/user', authRoutes);
 app.use('/api/story', storyRoutes);
