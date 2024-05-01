@@ -1,7 +1,7 @@
 // routes/storyRoutes.js
 const express = require('express');
 const router = express.Router();
-const {addStory, getUserStories, getStoriesByCategory, editStory} = require('../controllers/storyController');
+const {addStory, getUserStories, getStoriesByCategory, editStory, getStory} = require('../controllers/storyController');
 const authMiddleware = require('../middleware/authMiddleware');
 const { likeStory } = require('../controllers/likeController');
 
