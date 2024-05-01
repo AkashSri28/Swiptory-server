@@ -12,4 +12,7 @@ router.get('/user', authMiddleware, getUserStories);
 // Get stories by category
 router.get('/category/:category', getStoriesByCategory);
 
+// Route to update a story
+router.post('/edit', authMiddleware, editStory);
+
 module.exports = router;

@@ -54,4 +54,21 @@ const getStoriesByCategory = async (req, res) => {
     }
   };
 
-module.exports = { addStory, getUserStories, getStoriesByCategory };
+  // Update a story
+const editStory = async (req, res) => {
+  try {
+    const { storyForms, storyId, category } = req.body;
+    // Find the story by ID and update
+    const updatedStory = await Story.findOneAndUpdate(
+      { _id: storyId },
+      { $set: { forms: storyForms, category } }, // Update the forms and category with new data
+      { new: true }
+    );
+    res.status(200).json({ message: 'Story updated successfully', updatedStory });
+  } catch (error) {
+    console.error('Error updating story:', error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+};
+
+module.exports = { addStory, getUserStories, getStoriesByCategory, editStory };
