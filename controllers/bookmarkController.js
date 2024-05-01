@@ -7,7 +7,7 @@ bookmarkStory = async (req, res) => {
         const { storyId } = req.params;
         const userId = req.user._id;
 
-        console.log(user);
+        console.log(req);
         // Find the user
         const user = await User.findById(userId);
         if (!user) {
