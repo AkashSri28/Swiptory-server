@@ -14,7 +14,7 @@ const app = express();
 // Middleware for parsing JSON bodies
 app.use(cors(
   {
-    origin: ["https://musicart2-frontend.vercel.app", "http://localhost:3000"],
+    origin: ["https://swiptory-client-tau.vercel.app/", "http://localhost:3000"],
     methods:["POST", "GET", "PUT"],
     credentials: true
   }
@@ -23,7 +23,7 @@ app.use(cors(
 app.use(express.json());
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://sriakash2009:admin@cluster0.hbcyh4c.mongodb.net/swiptory?retryWrites=true&w=majority&appName=Cluster0', {
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
