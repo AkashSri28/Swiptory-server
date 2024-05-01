@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const {addStory, getUserStories, getStoriesByCategory, editStory} = require('../controllers/storyController');
 const authMiddleware = require('../middleware/authMiddleware');
+const { likeStory } = require('../controllers/likeController');
 
 router.post('/add', authMiddleware ,addStory);
 
@@ -14,5 +15,8 @@ router.get('/category/:category', getStoriesByCategory);
 
 // Route to update a story
 router.post('/edit', authMiddleware, editStory);
+
+//Route to like a story
+router.post('/like', authMiddleware, likeStory)
 
 module.exports = router;

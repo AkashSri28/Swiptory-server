@@ -9,7 +9,11 @@ const storySchema = new mongoose.Schema({
     }
   ],
   category: String,
-  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }
+  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  likes: {
+    type: Number,
+    default: 0
+  }
 });
 
 const Story = mongoose.model('Story', storySchema);

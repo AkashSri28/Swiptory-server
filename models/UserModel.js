@@ -13,6 +13,10 @@ const userSchema = new mongoose.Schema({
   bookmarks: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Story' // Referencing the Story model
+  }],
+  likes: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Story' // Referencing the Story model
   }]
 });
 
