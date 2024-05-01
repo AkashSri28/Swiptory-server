@@ -4,7 +4,7 @@ const Story = require('../models/StoryModel');
 bookmarkStory = async (req, res) => {
    
     try {
-        const { storyId } = req.params;
+        const { storyId } = req.body;
         const userId = req.user._id;
 
         // Find the user
