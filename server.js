@@ -14,7 +14,7 @@ const app = express();
 // Middleware for parsing JSON bodies
 app.use(cors(
   {
-    origin: ["https://swiptory-client-tau.vercel.app/", "http://localhost:3000"],
+    origin: ["https://swiptory-client-tau.vercel.app", "http://localhost:3000"],
     methods:["POST", "GET", "PUT"],
     credentials: true
   }

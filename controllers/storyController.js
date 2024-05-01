@@ -64,7 +64,7 @@ const editStory = async (req, res) => {
       { $set: { forms: storyForms, category } }, // Update the forms and category with new data
       { new: true }
     );
-    res.status(200).json({ message: 'Story updated successfully', updatedStory });
+    res.status(200).json({ message: 'Story updated successfully' });
   } catch (error) {
     console.error('Error updating story:', error);
     res.status(500).json({ message: 'Internal server error' });
