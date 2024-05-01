@@ -1,5 +1,5 @@
-const User = require('../models/User');
-const Story = require('../models/Story');
+const User = require('../models/UserModel');
+const Story = require('../models/StoryModel');
 
 bookmarkStory = async (req, res) => {
    
