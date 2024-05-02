@@ -73,7 +73,7 @@ const editStory = async (req, res) => {
 
 //Get a story by Id
 const getStory = async (req, res) => {
-  const sotryId = req.params.id;
+  const storyId = req.params.id;
   console.log(storyId)
   try {
     // Find the story by ID in the database
