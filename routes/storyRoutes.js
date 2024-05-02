@@ -20,6 +20,6 @@ router.post('/edit', authMiddleware, editStory);
 router.post('/like', authMiddleware, likeStory)
 
 //Route to get a story
-router.get('/:storyId', getStory)
+router.get('/:id', getStory)
 
 module.exports = router;

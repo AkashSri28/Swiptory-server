@@ -73,10 +73,12 @@ const editStory = async (req, res) => {
 
 //Get a story by Id
 const getStory = async (req, res) => {
-  const { storyId } = req.params;
+  const { id } = req.params;
+  console.log(id)
   try {
     // Find the story by ID in the database
     const story = await Story.findById(storyId);
+    console.log(story)
 
     if (!story) {
         return res.status(404).json({ error: 'Story not found' });
