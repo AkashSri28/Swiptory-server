@@ -73,8 +73,8 @@ const editStory = async (req, res) => {
 
 //Get a story by Id
 const getStory = async (req, res) => {
-  const { id } = req.params;
-  console.log(id)
+  const sotryId = req.params.id;
+  console.log(storyId)
   try {
     // Find the story by ID in the database
     const story = await Story.findById(storyId);
