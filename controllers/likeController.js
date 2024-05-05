@@ -46,9 +46,28 @@ likeStory = async (req, res) => {
             return res.status(200).json({ success: true, message: "Story liked successfully." });
         }
     } catch (error) {
-        console.error('Error bookmarking story:', error);
+        console.error('Error liking/ disliking story:', error);
         return res.status(500).json({ success: false, message: "Internal server error." });
     }
 };
 
-module.exports = {likeStory};
+const checkLike = async (req, res)=>{
+    try {
+        const userId = req.user._id; // Current user's ID
+        const storyId = req.params.storyId; // Story ID
+
+        // Check if the story is liked by the current user
+        const user = await User.findById(userId);
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        const isLiked = user.likes.includes(storyId);
+        res.json({ isLiked });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: 'Server Error' });
+    }
+}
+
+module.exports = {likeStory, checkLike};

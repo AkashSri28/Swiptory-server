@@ -64,4 +64,23 @@ const getBookmarkedStories = async(req, res) => {
     }
 }
 
-module.exports = {bookmarkStory, getBookmarkedStories};
+const checkBookmark = async (req, res)=>{
+    try {
+        const userId = req.user._id; // Current user's ID
+        const storyId = req.params.storyId; // Story ID
+
+        // Check if the story is bookmarked by the current user
+        const user = await User.findById(userId);
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        const isBookmarked = user.bookmarks.includes(storyId);
+        res.json({ isBookmarked });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: 'Server Error' });
+    }
+}
+
+module.exports = {bookmarkStory, getBookmarkedStories, checkBookmark};
