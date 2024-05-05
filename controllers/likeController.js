@@ -33,7 +33,7 @@ const likeStory = async (req, res) => {
                 await story.save();
             }
 
-            return res.status(200).json({ success: true, message: "Story disliked successfully." });
+            return res.status(200).json({ success: true, message: "Story disliked successfully.", likeCount: story.likes });
         } else {
             // Add the story to the user's liked stories
             user.likes.push(storyId);
@@ -52,12 +52,9 @@ const likeStory = async (req, res) => {
 };
 
 const checkLike = async (req, res)=>{
-    console.log('checklike function')
     try {
         const userId = req.user._id; // Current user's ID
         const storyId = req.params.storyId; // Story ID
-
-        console.log('user id: ', userId);
 
         // Check if the story is liked by the current user
         const user = await User.findById(userId);
