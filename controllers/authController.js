@@ -33,7 +33,7 @@ const loginUser = async(req, res)=>{
         // Check if user exists
         const user = await User.findOne({ username });
         if (!user) {
-          return res.status(201).json({ message: 'User not found' });
+          return res.status(201).json({ message: 'Please enter valid username' });
         }
         // Check if password is correct
         const isPasswordValid = await bcrypt.compare(password, user.password);
