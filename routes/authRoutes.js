@@ -17,6 +17,6 @@ router.post('/bookmark', authMiddleware, bookmarkStory);
 router.get('/bookmarkedStories', authMiddleware, getBookmarkedStories)
 
 //check if story is bookmarked by current user
-router.get('/checkBookmark/:storyId', checkBookmark)
+router.get('/checkBookmark/:storyId', authMiddleware, checkBookmark)
 
 module.exports = router;
