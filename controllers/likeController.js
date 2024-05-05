@@ -1,7 +1,7 @@
 const User = require('../models/UserModel');
 const Story = require('../models/StoryModel');
 
-likeStory = async (req, res) => {
+const likeStory = async (req, res) => {
    
     try {
         const { storyId } = req.body;

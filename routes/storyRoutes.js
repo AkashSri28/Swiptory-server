@@ -20,7 +20,7 @@ router.post('/edit', authMiddleware, editStory);
 router.post('/like', authMiddleware, likeStory)
 
 //Route to check if the story is like by user
-router.post('/checkLike/:storyId', authMiddleware, checkLike)
+router.get('/checkLike/:storyId', authMiddleware, checkLike)
 
 //Route to get a story
 router.get('/:id', getStory)
