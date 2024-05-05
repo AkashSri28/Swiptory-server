@@ -52,9 +52,12 @@ likeStory = async (req, res) => {
 };
 
 const checkLike = async (req, res)=>{
+    console.log('checklike function')
     try {
         const userId = req.user._id; // Current user's ID
         const storyId = req.params.storyId; // Story ID
+
+        console.log('user id: ', userId);
 
         // Check if the story is liked by the current user
         const user = await User.findById(userId);
