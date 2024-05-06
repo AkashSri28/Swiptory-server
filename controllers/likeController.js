@@ -43,7 +43,7 @@ const likeStory = async (req, res) => {
             story.likes++;
             await story.save();
 
-            return res.status(200).json({ success: true, message: "Story liked successfully." });
+            return res.status(200).json({ success: true, message: "Story liked successfully.", likeCount: story.likes });
         }
     } catch (error) {
         console.error('Error liking/ disliking story:', error);
